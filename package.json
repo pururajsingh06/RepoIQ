@@ -1,0 +1,11 @@
+{
+  "name": "repoiq-monolith",
+  "version": "1.0.0",
+  "description": "RepoIQ Full Stack Application",
+  "scripts": {
+    "start": "npm start --prefix backend",
+    "build": "npm install --prefix frontend && npm run build --prefix frontend && npm install --prefix backend",
+    "install-all": "npm install --prefix frontend && npm install --prefix backend",
+    "dev": "npm install --prefix backend && npm run dev --prefix backend"
+  }
+}
