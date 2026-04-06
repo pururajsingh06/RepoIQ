@@ -40,7 +40,7 @@ function Home() {
                             <polyline points="12 5 19 12 12 19"></polyline>
                         </svg>
                     </Link>
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="btn-secondary">
+                    <a href="https://github.com/pururajsingh06/RepoIQ" target="_blank" rel="noopener noreferrer" className="btn-secondary">
                         View Details
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <circle cx="12" cy="12" r="10"></circle>

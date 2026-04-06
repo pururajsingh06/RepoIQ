@@ -17,8 +17,7 @@ function Contact() {
     setErrorMessage("");
 
     try {
-      const API_URL = import.meta.env.VITE_API_URL || "";
-      await axios.post(`${API_URL}/api/contact`, formData);
+      await axios.post("/api/contact", formData);
       setStatus("success");
       setFormData({ name: "", email: "", message: "" }); // Reset form
       

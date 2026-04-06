@@ -11,11 +11,7 @@ function RepoInput({ setResult }) {
         try {
             setLoading(true);
 
-            const API_URL = import.meta.env.VITE_API_URL || "";
-            const res = await axios.post(
-                `${API_URL}/api/repo`,
-                { repoUrl: url }
-            );
+            const res = await axios.post('/api/repo', { repoUrl: url });
 
             setResult(res.data);
         } catch (err) {

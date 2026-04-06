@@ -17,17 +17,14 @@ function Analyze() {
             setError(null);
             setResult(null);
             
-            const API_URL = import.meta.env.VITE_API_URL || "";
-            const res = await axios.post(
-                `${API_URL}/api/repo`,
-                { repoUrl: url }
-            );
+            const res = await axios.post('/api/repo', { repoUrl: url });
 
             console.log(res.data);
             setResult(res.data);
         } catch (err) {
             console.error(err);
-            setError("Failed to analyze repository. Please check the URL and ensure the backend is running.");
+            const errMsg = err.response?.data?.message || err.message || "Unknown error occurred";
+            setError(`Failed to analyze repository: ${errMsg}. Please ensure the URL is valid and the backend is running.`);
         } finally {
             setLoading(false);
         }

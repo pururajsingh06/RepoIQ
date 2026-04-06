@@ -41,6 +41,6 @@ Return JSON:
     
   } catch (error) {
     console.log("AI ERROR:", error.response?.data || error.message);
-    throw new Error("AI analysis failed");
+    throw new Error(`AI analysis failed: ${error.response?.data?.error?.message || error.message}`);
   }
 };
