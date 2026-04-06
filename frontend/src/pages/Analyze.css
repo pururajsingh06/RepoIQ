@@ -24,7 +24,7 @@
 }
 
 .analyze-title {
-    font-size: 3.5rem;
+    font-size: clamp(2rem, 6vw, 3.5rem);
     font-weight: 800;
     margin-bottom: 1.25rem;
     background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
@@ -160,7 +160,12 @@
 
 @media (max-width: 768px) {
     .analyze-page { padding: 3rem 1.5rem; }
-    .analyze-title { font-size: 2.5rem; }
     .analyze-form { flex-direction: column; border-radius: 20px; padding: 1rem; }
     .analyze-btn { border-radius: 12px; padding: 1rem; justify-content: center; }
+}
+
+@media (max-width: 400px) {
+    .analyze-page { padding: 2rem 1rem; }
+    .analyze-form { padding: 0.75rem; }
+    .analyze-btn { padding: 0.8rem; }
 }

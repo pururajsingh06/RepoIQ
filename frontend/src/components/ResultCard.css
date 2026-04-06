@@ -252,3 +252,35 @@
         flex-direction: column;
     }
 }
+
+@media (max-width: 400px) {
+    .result-card {
+        padding: 1rem;
+    }
+    
+    .repo-name {
+        font-size: 1.25rem;
+    }
+    
+    .repo-stats {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .stat-badge {
+        justify-content: center;
+    }
+    
+    .score-container {
+        padding: 1rem;
+    }
+    
+    .suggestion-item {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    .suggestion-icon {
+        align-self: center;
+    }
+}
