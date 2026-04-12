@@ -24,7 +24,14 @@ function Analyze() {
         } catch (err) {
             console.error(err);
             const errMsg = err.response?.data?.message || err.message || "Unknown error occurred";
-            setError(`Failed to analyze repository: ${errMsg}. Please ensure the URL is valid and the backend is running.`);
+            const cleanErrMsg = errMsg.endsWith('.') ? errMsg : `${errMsg}.`;
+            
+            
+            if (cleanErrMsg.toLowerCase().includes('ai analysis failed') || cleanErrMsg.toLowerCase().includes('high demand') || cleanErrMsg.toLowerCase().includes('rate limit')) {
+                setError(`${cleanErrMsg}`); 
+            } else {
+                setError(`${cleanErrMsg} Please check your URL or try again in a moment.`);
+            }
         } finally {
             setLoading(false);
         }
@@ -72,8 +79,18 @@ function Analyze() {
                 )}
 
                 {error && (
-                    <div className="mt-4 bg-red-900/40 text-red-300 p-4 rounded-xl border border-red-500/30">
-                        {error}
+                    <div className="analyze-error">
+                        <div className="error-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="12"></line>
+                                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                            </svg>
+                        </div>
+                        <div className="error-content">
+                            <h3 className="error-title">Analysis Failed</h3>
+                            <p className="error-message">{error}</p>
+                        </div>
                     </div>
                 )}
 

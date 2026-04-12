@@ -31,13 +31,56 @@ export const getRepoData = async (repoUrl) => {
       { headers }
     );
 
+    const languagesRes = await axios.get(
+      `https://api.github.com/repos/${owner}/${repo}/languages`,
+      { headers }
+    ).catch(() => ({ data: {} }));
+
+    let readmeText = "No README found.";
+    try {
+      const readmeRes = await axios.get(
+        `https://api.github.com/repos/${owner}/${repo}/readme`,
+        { headers }
+      );
+      readmeText = Buffer.from(readmeRes.data.content, 'base64').toString("utf-8");
+    } catch (e) {
+      console.log("No README found or error fetching it.");
+    }
+
+    const allFiles = contentsRes.data.map((file) => file.name);
+
+    const fileCategories = {
+      Code: 0,
+      Assets: 0,
+      Config: 0,
+      Docs: 0,
+      Other: 0
+    };
+
+    const codeExt = ['.js', '.jsx', '.ts', '.tsx', '.py', '.go', '.java', '.cpp', '.c', '.cs', '.php', '.rb', '.swift', '.html', '.css', '.scss'];
+    const assetExt = ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.ico', '.webp', '.mp4', '.mp3'];
+    const configExt = ['.json', '.yml', '.yaml', '.xml', '.ini', '.env'];
+    const docExt = ['.md', '.txt', '.pdf'];
+
+    allFiles.forEach(file => {
+      const lowerFile = file.toLowerCase();
+      if (codeExt.some(ext => lowerFile.endsWith(ext))) fileCategories.Code++;
+      else if (assetExt.some(ext => lowerFile.endsWith(ext))) fileCategories.Assets++;
+      else if (configExt.some(ext => lowerFile.endsWith(ext)) || lowerFile.includes('config') || lowerFile.includes('ignore') || lowerFile.includes('lock')) fileCategories.Config++;
+      else if (docExt.some(ext => lowerFile.endsWith(ext))) fileCategories.Docs++;
+      else fileCategories.Other++;
+    });
+
     return {
       name: repoRes.data.name,
       description: repoRes.data.description,
       stars: repoRes.data.stargazers_count,
       forks: repoRes.data.forks_count,
       language: repoRes.data.language,
-      files: contentsRes.data.map((file) => file.name),
+      files: allFiles,
+      languages: languagesRes.data,
+      readme: readmeText.substring(0, 2000), // truncated for AI limit
+      fileCategories
     };
   } catch (error) {
     if (error.response?.status === 403 || error.response?.status === 429) {

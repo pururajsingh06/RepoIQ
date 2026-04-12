@@ -20,7 +20,7 @@ function Home() {
 
             <div className="hero-content">
                 <div className="badge">
-                    <span>NEW</span> AI Powered Code Analysis v2.0
+                    <span>NEW</span> AI Powered Code Analysis
                 </div>
 
                 <h1 className="hero-title">

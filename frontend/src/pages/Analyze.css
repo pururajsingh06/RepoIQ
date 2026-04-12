@@ -158,6 +158,50 @@
     }
 }
 
+.analyze-error {
+    width: 100%;
+    max-width: 700px;
+    background: rgba(220, 38, 38, 0.08); /* More subtle red context */
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: 16px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    animation: slideUpFade 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    margin-top: 1rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.error-icon {
+    color: #ef4444; /* red-500 */
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+}
+
+.error-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.error-title {
+    color: #f87171; /* red-400 */
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.error-message {
+    color: #fca5a5; /* red-300 */
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
 @media (max-width: 768px) {
     .analyze-page { padding: 3rem 1.5rem; }
     .analyze-form { flex-direction: column; border-radius: 20px; padding: 1rem; }

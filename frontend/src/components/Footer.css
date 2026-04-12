@@ -4,7 +4,7 @@
 .footer-container {
     background: rgba(15, 23, 42, 0.95);
     border-top: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 3rem 2rem 2rem;
+    padding: 1.8rem 2rem 1.2rem;
     position: relative;
     overflow: hidden;
     color: #94a3b8;
@@ -29,7 +29,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .footer-logo {
@@ -68,8 +68,8 @@
 
 .footer-bottom {
     width: 100%;
-    margin-top: 1.5rem;
-    padding-top: 2rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     display: flex;
     justify-content: space-between;
@@ -89,5 +89,63 @@
         flex-direction: column;
         gap: 1rem;
         text-align: center;
+    }
+}
+/* Social links */
+.footer-socials {
+    display: flex;
+    gap: 2rem;
+    margin-top: 0.5rem;
+}
+
+.footer-socials a {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Hover glow effect */
+.footer-socials a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
+    transition: width 0.3s ease;
+}
+
+.footer-socials a:hover {
+    color: #00f2fe;
+}
+
+.footer-socials a:hover::after {
+    width: 100%;
+}
+
+/* Made by text */
+.made-by {
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.made-by strong {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    .footer-socials {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: center;
     }
 }
