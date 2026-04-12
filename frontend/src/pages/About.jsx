@@ -1,42 +1,72 @@
+import { Shield, Zap, BarChart3, Globe, Code2, Server, Cpu, Database } from "lucide-react";
 import "./About.css";
 
 function About() {
+  const features = [
+    {
+      icon: <Zap size={28} />,
+      title: "Rapid AI Scanning",
+      desc: "Instant evaluation of complex repositories using Gemini 2.5 Flash architecture."
+    },
+    {
+      icon: <BarChart3 size={28} />,
+      title: "Visual Intelligence",
+      desc: "Radar charts and distribution graphs provide a visual blueprint of your codebase."
+    },
+    {
+      icon: <Shield size={28} />,
+      title: "Quality Assurance",
+      desc: "In-depth scoring on readability, structure, and documentation quality."
+    },
+    {
+      icon: <Globe size={28} />,
+      title: "Direct Integration",
+      desc: "Fetches live data from GitHub API including metadata, README, and language stats."
+    }
+  ];
+
+  const techStack = [
+    { icon: <Code2 size={24} />, name: "React" },
+    { icon: <Server size={24} />, name: "Node.js" },
+    { icon: <Cpu size={24} />, name: "Gemini AI" },
+    { icon: <Database size={24} />, name: "GitHub API" }
+  ];
+
   return (
     <div className="about-page">
       <div className="about-card">
-        <h1 className="about-title">About the Project</h1>
+        <h1 className="about-title">About RepoIQ</h1>
         <div className="about-content">
           <p>
-            RepoIQ is a cutting-edge developer tool designed to bridge the gap between rapidly expanding codebases and high architectural standards. 
+            RepoIQ is a premium developer tool designed to transform how we understand and evaluate codebases. 
+            By bridging the gap between raw code and actionable intelligence, we help developers and teams 
+            maintain high architectural standards without the manual overhead.
           </p>
           <p>
-            By fetching and parsing repositories directly from GitHub, this app leverages advanced generative AI models to dissect code architecture, identify technical debt, and provide actionable modernization strategies—saving teams countless hours of manual code review.
+            Leveraging direct GitHub integration and state-of-the-art AI, RepoIQ provides detailed 
+            visualizations and strategic advice on every project you scan.
           </p>
         </div>
 
         <div className="features-grid">
-          <div className="feature-box">
-            <div className="feature-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                <line x1="12" y1="22.08" x2="12" y2="12"></line>
-              </svg>
+          {features.map((f, i) => (
+            <div key={i} className="feature-box">
+              <div className="feature-icon">{f.icon}</div>
+              <h3 className="feature-title">{f.title}</h3>
+              <p className="feature-desc">{f.desc}</p>
             </div>
-            <h3 className="feature-title">Deep Scanning</h3>
-            <p className="feature-desc">Analyzes overall repository structure and file organizations.</p>
-          </div>
-          
-          <div className="feature-box">
-            <div className="feature-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="16" x2="12" y2="12"></line>
-                <line x1="12" y1="8" x2="12.01" y2="8"></line>
-              </svg>
-            </div>
-            <h3 className="feature-title">Actionable Advice</h3>
-            <p className="feature-desc">Provides exact suggestions for improving code quality.</p>
+          ))}
+        </div>
+
+        <div className="tech-section">
+          <h3 className="tech-heading">Built With Modern Tech</h3>
+          <div className="tech-grid">
+            {techStack.map((t, i) => (
+              <div key={i} className="tech-item">
+                {t.icon}
+                <span>{t.name}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
