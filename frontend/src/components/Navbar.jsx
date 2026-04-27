@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { BrainCircuit } from "lucide-react";
 import "./Navbar.css";
 
 function Navbar() {
@@ -21,25 +22,7 @@ function Navbar() {
             <div className="navbar-content">
                 {/* Logo */}
                 <Link to="/" className="navbar-logo">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="url(#paint0_linear)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        <path d="M2 17L12 22L22 17" stroke="url(#paint1_linear)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        <path d="M2 12L12 17L22 12" stroke="url(#paint2_linear)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        <defs>
-                            <linearGradient id="paint0_linear" x1="2" y1="2" x2="22" y2="12" gradientUnits="userSpaceOnUse">
-                                <stop stopColor="#4facfe" />
-                                <stop offset="1" stopColor="#00f2fe" />
-                            </linearGradient>
-                            <linearGradient id="paint1_linear" x1="2" y1="17" x2="22" y2="22" gradientUnits="userSpaceOnUse">
-                                <stop stopColor="#4facfe" />
-                                <stop offset="1" stopColor="#00f2fe" />
-                            </linearGradient>
-                            <linearGradient id="paint2_linear" x1="2" y1="12" x2="22" y2="17" gradientUnits="userSpaceOnUse">
-                                <stop stopColor="#4facfe" />
-                                <stop offset="1" stopColor="#00f2fe" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
+                    <BrainCircuit className="logo-icon" size={28} />
                     <span>RepoIQ</span>
                 </Link>
 

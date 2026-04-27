@@ -53,6 +53,11 @@
     -webkit-text-fill-color: transparent;
 }
 
+.logo-icon {
+    color: #00f2fe;
+    filter: drop-shadow(0 0 8px rgba(0, 242, 254, 0.5));
+}
+
 .navbar-logo:hover {
     transform: scale(1.03);
 }
