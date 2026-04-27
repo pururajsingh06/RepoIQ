@@ -118,6 +118,22 @@
 }
 
 @media (max-width: 600px) {
-    .contact-card { padding: 2rem; }
-    .contact-title { font-size: 2rem; }
+    .contact-page {
+        padding: 4rem 1rem;
+    }
+    .contact-card {
+        padding: 2rem;
+        box-sizing: border-box;
+    }
+    .contact-title {
+        font-size: 2rem;
+    }
+    .contact-btn {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .contact-input, .contact-textarea {
+        box-sizing: border-box;
+        width: 100%;
+    }
 }

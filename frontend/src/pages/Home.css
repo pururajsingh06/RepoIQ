@@ -197,10 +197,13 @@
     .hero-actions {
         flex-direction: column;
         width: 100%;
+        padding: 0 1rem;
+        box-sizing: border-box;
     }
     
     .btn-primary, .btn-secondary {
         width: 100%;
         justify-content: center;
+        box-sizing: border-box;
     }
 }

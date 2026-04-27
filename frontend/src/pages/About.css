@@ -103,8 +103,16 @@
 }
 
 @media (max-width: 600px) {
-    .about-card { padding: 2rem; }
-    .about-title { font-size: 2rem; }
+    .about-page {
+        padding: 4rem 1rem;
+    }
+    .about-card {
+        padding: 2rem;
+        box-sizing: border-box;
+    }
+    .about-title {
+        font-size: 2rem;
+    }
 }
 
 .tech-section {

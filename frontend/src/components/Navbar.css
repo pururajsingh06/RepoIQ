@@ -249,14 +249,18 @@
     }
     
     .navbar-content {
-        padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+        padding: 0.6rem 1.2rem;
     }
     
     .nav-button {
-        display: none; /* Hide 'Get Started' on very small to save space if needed, or keep it smaller */
+        display: none;
+    }
+    
+    .navbar-logo {
+        font-size: 1.2rem;
     }
     
     .navbar-logo span {
-        display: none; /* Hide text on very small screens, keep logo */
+        display: inline;
     }
 }
